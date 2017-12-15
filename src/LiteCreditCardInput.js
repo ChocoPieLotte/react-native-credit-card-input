@@ -76,6 +76,7 @@ export default class LiteCreditCardInput extends Component {
     validColor: PropTypes.string,
     invalidColor: PropTypes.string,
     placeholderColor: PropTypes.string,
+    imageContainerStyle: PropTypes.object,
 
     additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
   };
@@ -151,7 +152,7 @@ export default class LiteCreditCardInput extends Component {
               containerStyle={s.numberInput} />
         </View>
         <TouchableOpacity onPress={showRightPart ? this._focusNumber : this._focusExpiry }>
-          <Image style={s.icon}
+          <Image style={[s.icon, this.props.imageContainerStyle]}
               source={{ uri: Icons[this._iconToShow()] }} />
         </TouchableOpacity>
         <View style={[
